@@ -20,5 +20,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
 
+      - name: List Buckets
+        run: aws s3 ls
+
       - name: Deploy static site to S3 bucket
         run: aws s3 sync . s3://tws-mu-bucket-file-30 --delete
